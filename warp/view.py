@@ -72,8 +72,9 @@ def zone(zid):
         flask.abort(403)
 
     nextWeek = utils.getNextWeek()
+    #TODO group specific
     defaultSelectedDates = {
-        "slider": [9*3600, 17*3600]
+        "slider": [0*3600, 24*3600]
     }
 
     for d in nextWeek[1:]:

@@ -8,11 +8,11 @@ class DefaultSettings(object):
     LANGUAGE_FILE="i18n/en.js"
 
     # after how many days force user to re-login (note that it is not a session timeout)
-    SESSION_LIFETIME = 1
+    SESSION_LIFETIME = 100
 
     # for how many weeks in advance users can book a seat
     # (after the current week)
-    WEEKS_IN_ADVANCE = 1
+    WEEKS_IN_ADVANCE = 52
 
     MAX_CONTENT_LENGTH = 5 * 1024 * 1024
 
@@ -72,7 +72,7 @@ class DevelopmentSettings(DefaultSettings):
         "sql/sample_data.sql"
     ]
 
-    SECRET_KEY = b'change_me'
+    SECRET_KEY = b"\xdf\x33\xe2\x06\x20\x8b\x69\xb1\x64\x4b\x13\xed\x97\x7b\xf6\x55" #TODO update for deployment
 
 
 class ProductionSettings(DefaultSettings):
@@ -106,10 +106,10 @@ def readEnvironmentSettings(app):
 
 def initConfig(app):
 
-    if app.env != 'production':
-        app.config.from_object(DevelopmentSettings)
-    else:
-        app.config.from_object(ProductionSettings)
+    #if app.env != 'production':
+    app.config.from_object(DevelopmentSettings)
+    #else:
+    #    app.config.from_object(ProductionSettings)
 
     readEnvironmentSettings(app)
 
