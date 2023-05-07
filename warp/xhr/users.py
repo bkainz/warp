@@ -36,7 +36,7 @@ editSchema = {
     "properties": {
         "login" : {"type" : "string"},
         "name" : {"type" : "string"},
-        "account_type" : {"enum" : [ACCOUNT_TYPE_ADMIN,ACCOUNT_TYPE_USER,ACCOUNT_TYPE_BLOCKED,ACCOUNT_TYPE_GROUP]},
+        "account_type" : {"enum" : [ACCOUNT_TYPE_ADMIN,ACCOUNT_TYPE_UGSTUDENT_USER,ACCOUNT_TYPE_PARTTIME_RA_USER,ACCOUNT_TYPE_FULLTIME_NO_TEACHING_USER,ACCOUNT_TYPE_FULLTIME_TEACHING_USER,ACCOUNT_TYPE_FULLTIME_ADMIN_USER,ACCOUNT_TYPE_PARTTIME_ADMIN_USER,ACCOUNT_TYPE_USER,ACCOUNT_TYPE_BLOCKED,ACCOUNT_TYPE_GROUP]},
         "password" : {"type" : "string"},
         "action": {"enum": ["add","update"]},
         "groups": {

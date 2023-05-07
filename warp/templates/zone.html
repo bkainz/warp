@@ -19,6 +19,13 @@
 
     </script>
 
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/core@1.2.1/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/base-plugin@1.2.1/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.1/dist/index.umd.min.js"></script>
+
+
 {% endblock %}
 
 {% block overlays %}
@@ -153,8 +160,29 @@
                 </div>
             </div>
 
-            <div class="zone_datetime_container">
 
+            <div class="zone_datetime_container">
+                <input id="datepicker"/>
+                <script>
+                    const picker = new easepick.create({
+                        element: "#datepicker",
+                        css: [
+                            "https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.css",
+                            'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.1/dist/index.css',
+                            ],
+                        zIndex: 10,
+                        grid: 2,
+                        calendars: 3,
+                        autoApply: false,
+                        plugins: ['RangePlugin'],
+                        RangePlugin: {
+                          tooltip: true,
+                      },
+                  })
+              </script>
+          </div>
+            
+            <div class="zone_datetime_container">
                 <div class="zone_datelist">
                     {% for w in nextWeek %}
                     <p>

@@ -13,7 +13,7 @@ DB = None
 Blobs = Table('blobs',('id','mimetype','data','etag'),primary_key='id')
 Users = Table('users',('login','password','name','account_type'))
 Groups = Table('groups',('group','login'))
-Seat = Table('seat',('id','zid','name','x','y','enabled'))
+Seat = Table('seat',('id','zid','name','x','y','enabled','clean_type'))
 Zone = Table('zone',('id','zone_group','name','iid'))
 ZoneAssign = Table('zone_assign',('zid','login','zone_role'))
 Book = Table('book',('id','login','sid','fromts','tots'))
@@ -26,19 +26,37 @@ SQL_ONE = SQL('1')
 
 # the highest role must be the lowest value
 ACCOUNT_TYPE_ADMIN = 10
+ACCOUNT_TYPE_UGSTUDENT_USER = 21
+ACCOUNT_TYPE_PARTTIME_RA_USER = 19
+ACCOUNT_TYPE_FULLTIME_NO_TEACHING_USER = 18
+ACCOUNT_TYPE_FULLTIME_TEACHING_USER = 17
+ACCOUNT_TYPE_FULLTIME_ADMIN_USER = 16
+ACCOUNT_TYPE_PARTTIME_ADMIN_USER = 15
 ACCOUNT_TYPE_USER = 20
 ACCOUNT_TYPE_BLOCKED = 90
 ACCOUNT_TYPE_GROUP = 100
 
 # the highest role must be the lowest value
-ZONE_ROLE_ADMIN = 10
+ZONE_ROLE_ADMIN = 10 #group specific admins? 
+ZONE_ROLE_UGSTUDENT_USER = 21
+ZONE_ROLE_PARTTIME_RA_USER = 19
+ZONE_ROLE_FULLTIME_NO_TEACHING_USER  = 18
+ZONE_ROLE_FULLTIME_TEACHING_USER = 17
+ZONE_ROLE_FULLTIME_ADMIN_USER = 16
+ZONE_ROLE_PARTTIME_ADMIN_USER  = 15
+#ZONE_ROLE_USER = 20
 ZONE_ROLE_USER = 20
 ZONE_ROLE_VIEWER = 30
 
+#TODO sign out faclity
+#TODO seat type non-clean and clean
+
 __all__ = ["DB", "Blobs", "Users", "Groups","Seat", "Zone", "ZoneAssign", "Book","SeatAssign","UserToZoneRoles",
            "IntegrityError", "COUNT_STAR", "SQL_ONE",
-           'ACCOUNT_TYPE_ADMIN','ACCOUNT_TYPE_USER','ACCOUNT_TYPE_BLOCKED','ACCOUNT_TYPE_GROUP',
-           'ZONE_ROLE_ADMIN', 'ZONE_ROLE_USER', 'ZONE_ROLE_VIEWER']
+           'ACCOUNT_TYPE_ADMIN','ACCOUNT_TYPE_UGSTUDENT_USER', 'ACCOUNT_TYPE_PARTTIME_RA_USER', 'ACCOUNT_TYPE_FULLTIME_NO_TEACHING_USER', 
+           'ACCOUNT_TYPE_FULLTIME_TEACHING_USER',  'ACCOUNT_TYPE_FULLTIME_ADMIN_USER',  'ACCOUNT_TYPE_PARTTIME_ADMIN_USER', 'ACCOUNT_TYPE_BLOCKED',
+           'ACCOUNT_TYPE_GROUP','ZONE_ROLE_ADMIN', 'ACCOUNT_TYPE_USER', 'ZONE_ROLE_UGSTUDENT_USER', 'ZONE_ROLE_PARTTIME_RA_USER', 'ZONE_ROLE_FULLTIME_NO_TEACHING_USER',
+           'ZONE_ROLE_FULLTIME_TEACHING_USER', 'ZONE_ROLE_FULLTIME_ADMIN_USER', 'ZONE_ROLE_PARTTIME_ADMIN_USER', 'ZONE_ROLE_USER', 'ZONE_ROLE_VIEWER']
 
 _INITIALIZED_TABLE = 'db_initialized'
 

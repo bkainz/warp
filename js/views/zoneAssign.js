@@ -13,6 +13,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
     let zoneRoles = [
         {label: "---" },
         {label: TR("zoneRoles.ZoneAdmin"), value: 10 },
+        {label: TR("zoneRoles.UGSTUDENT"), value: 21 },
+        {label: TR("zoneRoles.PARTTIME_RA_USER"), value: 19 },
+        {label: TR("zoneRoles.FULLTIME_NO_TEACHING_USER"), value: 18 },
+        {label: TR("zoneRoles.FULLTIME_TEACHING_USER"), value: 17 },
+        {label: TR("zoneRoles.FULLTIME_ADMIN_USER"), value: 16 },
+        {label: TR("zoneRoles.PARTTIME_ADMIN_USER"), value: 15 },
         {label: TR("zoneRoles.User"), value: 20 },
         {label: TR("zoneRoles.Viewer"), value: 30 }
     ];

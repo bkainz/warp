@@ -172,6 +172,12 @@ warpGlobals.i18n.phrases = {
     "Zone role": "Role",
     zoneRoles: {
         "ZoneAdmin": "Admin",
+        "UGSTUDENT": "Undergraduate Student",
+        "PARTTIME_RA_USER": "part-time Research Associate",
+        "FULLTIME_NO_TEACHING_USER": "full-time WITHOUT teaching",
+        "FULLTIME_TEACHING_USER": "full-time WITH teaching",
+        "FULLTIME_ADMIN_USER": "full-time adminstrative support",
+        "PARTTIME_ADMIN_USER": "part-time adminstrative support",
         "User": "User",
         "Viewer": "Viewer",
     },

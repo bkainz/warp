@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 import Utils from './modules/utils.js';
 import WarpModal from './modules/modal.js';

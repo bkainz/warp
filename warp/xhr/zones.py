@@ -21,6 +21,12 @@ def listW():              #list is a built-in type
     countQuery = UserToZoneRoles.select( \
             UserToZoneRoles.zid, \
             COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_ADMIN).alias("admins"), \
+            COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_UGSTUDENT_USER).alias("ugstudents_users"), \
+            COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_PARTTIME_RA_USER).alias("parttime_RA_users"), \
+            COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_FULLTIME_NO_TEACHING_USER).alias("fulltime_no_teaching_users"), \
+            COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_FULLTIME_TEACHING_USER).alias("fulltime_teaching_users"), \
+            COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_FULLTIME_ADMIN_USER).alias("fulltime_admin_users"), \
+            COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_PARTTIME_ADMIN_USER).alias("parttime_admin_users"), \
             COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_USER).alias("users"), \
             COUNT_STAR.filter(UserToZoneRoles.zone_role == ZONE_ROLE_VIEWER).alias("viewers")) \
         .group_by(UserToZoneRoles.zid)
@@ -161,7 +167,7 @@ assignSchema = {
                 "type": "object",
                 "properties": {
                     "login" : {"type" : "string"},
-                    "role" : {"enum" : [ZONE_ROLE_ADMIN,ZONE_ROLE_USER,ZONE_ROLE_VIEWER]}
+                    "role" : {"enum" : [ZONE_ROLE_ADMIN,ZONE_ROLE_UGSTUDENT_USER,ZONE_ROLE_PARTTIME_RA_USER,ZONE_ROLE_FULLTIME_NO_TEACHING_USER,ZONE_ROLE_FULLTIME_TEACHING_USER,ZONE_ROLE_FULLTIME_ADMIN_USER,ZONE_ROLE_PARTTIME_ADMIN_USER,ZONE_ROLE_USER,ZONE_ROLE_VIEWER]}
                 },
                 "required": [ "login", "role"],
             },
